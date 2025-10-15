@@ -21,7 +21,7 @@ async function selectNetwork(driver, nth) {
   console.log(`✅ Clicked on network #${nth}`);
 }
 
-async function navbarTest(browserName) {
+async function moreticket(browserName) {
   let eticket;
   try {
     eticket = await new Builder().forBrowser(browserName).build();
@@ -93,6 +93,9 @@ if (dateOptions.length > 0) {
     )).sendKeys(numberoftickets);
     await eticket.sleep(3000);
 
+    await eticket.findElement(By.xpath("/html/body/app-root/app-home-layout/main/div[2]/div/app-events-page/main/div[1]/div/div[2]/div[1]/div/div[2]/div[6]/div/div[2]/input")).sendKeys(numberoftickets);
+    await eticket.sleep(3000);
+
     // Click Buy/Continue
     await eticket.findElement(By.xpath(
       "/html/body/app-root/app-home-layout/main/div[2]/div/app-events-page/main/div[1]/div/div[2]/div[1]/div/div[2]/app-secondary-button/main/div"
@@ -151,7 +154,7 @@ if (dateOptions.length > 0) {
 
 // Run in multiple browsers
 (async function runMultiBrowsers() {
-  await navbarTest('chrome');
+  await moreticket('chrome');
   // await navbarTest('firefox');
   // await navbarTest('MicrosoftEdge'); // if Edge WebDriver is set up
 })();
